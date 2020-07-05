@@ -1,10 +1,12 @@
+/*creates new canvas elements with different ids */ 
 let count = 0;
-function createElemen(zone, type) {
+function createElement(zone, type) {
 
     let myId = "A" + (count++)
     zone.innerHTML += `<canvas width="300" type="${type}" id = "${myId}" height="300" draggable="true"  class="draggable-elements">
     </canvas>`
 }
+/**loop over all canvas elements to draw the chart inside it  */
 function checkZone(zone) {
     list = zone.querySelectorAll("canvas")
 
@@ -16,23 +18,19 @@ function checkZone(zone) {
 window.onload = function () {
     for (let i = 0; i < 12; i++) {
         const zoneID = localStorage.key(i);
-        console.log(zoneID);
         if (zoneID !== null) {
             let obj = JSON.parse(localStorage.getItem(zoneID));           
             zone = document.getElementById(zoneID)   
-            console.log(zone)         
-            console.log(obj.width + " " + obj.height)
             zone.style.width = obj.width
             zone.style.height = obj.height
-
             for(let type of obj["types"]){
-                createElemen(zone, type)
+                createElement(zone, type)
             }        
-            
             checkZone(zone)
         }
     }
 }
+
 
 const dropArea = document.querySelector('.drop-area');
 
@@ -45,16 +43,10 @@ let draggedItem;
 const items = document.querySelectorAll('.draggable-elements');
 for (let item of items) {
     item.addEventListener('dragstart', function (e) {
-        draggedItem = item
-
-        setTimeout(() => {
-            item.classList.add('dragging');
-        }, 0)
+        draggedItem = item;
 
     });
-    item.addEventListener('dragend', () => {
-        item.classList.remove('dragging');
-    })
+    
 
 }
 
@@ -73,7 +65,7 @@ for (let zone of dAreas) {
         zone.style.backgroundColor = 'rgba(255,255,255,1)'
         console.log(draggedItem)
         type = draggedItem.getAttribute("type");
-        createElemen(zone, type)
+        createElement(zone, type)
         checkZone(zone)
         
     })

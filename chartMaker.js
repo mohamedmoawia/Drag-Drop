@@ -1,7 +1,7 @@
-
+/**creates charts using Chart JS library  */
 const myCharts = (elementID, type) =>{
 var ctx = document.getElementById(elementID);
-var myChart = new Chart(ctx, {
+     new Chart(ctx, {
     type: type,
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
