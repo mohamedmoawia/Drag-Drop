@@ -14,13 +14,17 @@
         <header>
             <h3>Drag & Drop</h3>
             <h5>drop the elements first then resize the drop zones from bottom right</h5>
+            <div>
+                <button id="ResetBtn">Reset</button>
+                <button id="saveBtn">Save</button>
+            </div>
         </header>
-        
+
         <hr />
         <div id='work-area'>
             <div class="widgets-list">
                 <button>New widget</button>
-                <button id="saveBtn">Save</button>
+
                 <canvas width="300" type="pie" height="300" id="chart-2" draggable="true" class="draggable-elements">
                 </canvas>
 
@@ -30,22 +34,26 @@
 
                 <canvas width="300" type="line" height="300" draggable="true" id="chart-3" class="draggable-elements">
                 </canvas>
-                <canvas width="300" type="horizontalBar" height="300" draggable="true" id="chart-4" class="draggable-elements">
+                <canvas width="300" type="horizontalBar" height="300" draggable="true" id="chart-4"
+                    class="draggable-elements">
                 </canvas>
-                <canvas width="300" type="polarArea" height="300" draggable="true" id="chart-5" class="draggable-elements">
+                <canvas width="300" type="polarArea" height="300" draggable="true" id="chart-5"
+                    class="draggable-elements">
                 </canvas>
                 <canvas width="300" type="radar" height="300" draggable="true" id="chart-6" class="draggable-elements">
                 </canvas>
-            
-                <canvas width="300" type="doughnut" height="300" draggable="true" id="chart-7" class="draggable-elements">
+
+                <canvas width="300" type="doughnut" height="300" draggable="true" id="chart-7"
+                    class="draggable-elements">
                 </canvas>
-            
+
             </div>
             <div class="drop-area">
             </div>
-           
+
         </div>
-    </div><script src="chartMaker.js"></script>    
+    </div>
+    <script src="chartMaker.js"></script>
     <script src="index.js"></script>
 </body>
 

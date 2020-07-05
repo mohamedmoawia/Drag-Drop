@@ -1,14 +1,10 @@
-
-
 let count = 0;
-
 function createElemen(zone, type) {
 
     let myId = "A" + (count++)
     zone.innerHTML += `<canvas width="300" type="${type}" id = "${myId}" height="300" draggable="true"  class="draggable-elements">
     </canvas>`
 }
-
 function checkZone(zone) {
     list = zone.querySelectorAll("canvas")
 
@@ -37,21 +33,16 @@ window.onload = function () {
         }
     }
 }
-const items = document.querySelectorAll('.draggable-elements');
-const icons = document.querySelectorAll('i');
+
 const dropArea = document.querySelector('.drop-area');
 
 for (let i = 0; i < 12; i++) {
     dropArea.innerHTML += `<div class="drop-zone"  id="${i}"></div>`
 }
-const dAreas = document.querySelectorAll('.drop-zone');
-const button = document.querySelector('button');
-button.addEventListener('click', () => {
-    localStorage.clear();
-})
+
 
 let draggedItem;
-
+const items = document.querySelectorAll('.draggable-elements');
 for (let item of items) {
     item.addEventListener('dragstart', function (e) {
         draggedItem = item
@@ -67,7 +58,7 @@ for (let item of items) {
 
 }
 
-
+const dAreas = document.querySelectorAll('.drop-zone');
 for (let zone of dAreas) {
 
     zone.addEventListener('dragover', (e) => {
@@ -86,13 +77,13 @@ for (let zone of dAreas) {
         checkZone(zone)
         
     })
-
-  
-
 }
 
-
-
+const ResetBtn = document.querySelector('#ResetBtn');
+ResetBtn.addEventListener('click', () => {
+    localStorage.clear();
+    location.reload();
+})
 
 document.querySelector("#saveBtn").addEventListener('click' , e=>{
 
@@ -115,6 +106,7 @@ document.querySelector("#saveBtn").addEventListener('click' , e=>{
     
 })
 
+/* creates the charts to the widgets list*/
 myCharts('chart-1', 'bar');
 myCharts('chart-2', 'pie');
 myCharts('chart-3', 'line');
